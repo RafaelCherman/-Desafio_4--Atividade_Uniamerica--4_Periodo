@@ -1,5 +1,6 @@
 package com.example.quartodesafio.controller;
 
+import com.example.quartodesafio.entity.Numeros;
 import com.example.quartodesafio.service.CalculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class CalculaController {
     private CalculaService calculaService;
 
     @PostMapping
-    public ResponseEntity<?> calcula(@RequestBody final List<Integer> numeros){
+    public ResponseEntity<?> calcula(@RequestBody final Numeros numeros){
 
         try{
             return ResponseEntity.ok(calculaService.calculos(numeros));

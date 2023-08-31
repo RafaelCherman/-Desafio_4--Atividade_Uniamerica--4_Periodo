@@ -1,5 +1,6 @@
 package com.example.quartodesafio.service;
 
+import com.example.quartodesafio.entity.Numeros;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -8,46 +9,27 @@ import java.util.List;
 @Service
 public class CalculaService {
 
-    public String calculos(final List<Integer> numeros)
+
+    public String calculos(final Numeros numeros)
     {
-        int tamanho = numeros.size();
-        int indexMediana;
-        double desvioPadrao = 0, mediana, media = 0, diferencaMedia, somaQuadrado;
-        List<Integer> ordenados = numeros;
+        int tamanho = numeros.getNumba().size();
+        double desvioPadrao = 0, mediana, media;
+        List<Integer> ordenados = numeros.getNumba();
         Collections.sort(ordenados);
 
 
-        for(int i : numeros)
-        {
-            media += i;
-        }
-        media = media / tamanho;
+        media = numeros.calculaMedia(tamanho);
 
-        for(int i : numeros)
-        {
-            diferencaMedia = i - media;
-            somaQuadrado = diferencaMedia * diferencaMedia;
-            desvioPadrao += somaQuadrado;
-        }
-        desvioPadrao = Math.sqrt(desvioPadrao / tamanho);
+        desvioPadrao = numeros.calculaDesvioPadrao(tamanho, media);
 
-        if(tamanho % 2 == 0)
-        {
-            indexMediana = tamanho / 2;
-            mediana = ordenados.get(indexMediana);
-            indexMediana = indexMediana - 1;
-            mediana += ordenados.get(indexMediana);
-            mediana = mediana / 2;
-        }
-        else
-        {
-            indexMediana = tamanho / 2;
-            mediana = ordenados.get(indexMediana);
-        }
+        mediana = numeros.calculaMediana(ordenados, tamanho);
+
 
         return "Total de numeros: " + tamanho + "\n" +
                 "Media dos numeros: " + String.format("%.02f", media) + "\n" +
                 "Desvio padrão dos numeros: " + String.format("%.02f", desvioPadrao)  + "\n" +
                 "Mediana dos numeros: " + String.format("%.02f", mediana);
     }
+
+
 }
