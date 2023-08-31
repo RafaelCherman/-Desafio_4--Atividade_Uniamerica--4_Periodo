@@ -65,4 +65,27 @@ public class Numeros {
         desvioPadrao = Math.sqrt(desvioPadrao / tamanho);
         return desvioPadrao;
     }
+
+    public double somaTodos()
+    {
+        int tamanho = numba.size();
+        double soma = 0;
+        for(int i : numba)
+        {
+            soma += i;
+        }
+        return soma;
+    }
+
+    public double retonarMin()
+    {
+        double min = Collections.min(numba);
+        return min;
+    }
+
+    public double retonarMax()
+    {
+        double max = Collections.max(numba);
+        return max;
+    }
 }

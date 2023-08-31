@@ -51,6 +51,45 @@ public class NumeroClassTest {
         Assert.assertEquals(5.76, desvioPadrao, 0.01);
     }
 
+    @Test
+    public void testSomaTodos()
+    {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for(int i=1; i<21; i++)
+        {
+            lista.add(i);
+        }
+        Numeros testes = new Numeros(lista);
+        double soma = testes.somaTodos();
+        Assert.assertEquals(210, soma, 0);
+    }
+
+    @Test
+    public void testRetornarMax()
+    {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for(int i=1; i<21; i++)
+        {
+            lista.add(i);
+        }
+        Numeros testes = new Numeros(lista);
+        double maior = testes.retonarMax();
+        Assert.assertEquals(20, maior, 0);
+    }
+
+    @Test
+    public void testRetornarMin()
+    {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for(int i=1; i<21; i++)
+        {
+            lista.add(i);
+        }
+        Numeros testes = new Numeros(lista);
+        double menor = testes.retonarMin();
+        Assert.assertEquals(1, menor, 0);
+    }
+
 
 
 
