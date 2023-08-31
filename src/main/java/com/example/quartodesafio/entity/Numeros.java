@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Collections;
 import java.util.List;
 
 @NoArgsConstructor
@@ -14,8 +15,9 @@ public class Numeros {
     @Getter @Setter
     private List<Integer> numba;
 
-    public double calculaMedia(int tamanho)
+    public double calculaMedia()
     {
+        int tamanho = numba.size();
         double media = 0;
         for(int i : numba)
         {
@@ -25,9 +27,12 @@ public class Numeros {
         return media;
     }
 
-    public double calculaMediana(List<Integer> ordenados, int tamanho)
+    public double calculaMediana()
     {
         int indexMediana;
+        List<Integer> ordenados = numba;
+        Collections.sort(ordenados);
+        int tamanho = numba.size();
         double mediana;
         if(tamanho % 2 == 0)
         {
@@ -46,8 +51,10 @@ public class Numeros {
         return mediana;
     }
 
-    public double calculaDesvioPadrao(int tamanho, double media)
+    public double calculaDesvioPadrao()
     {
+        double media = calculaMedia();
+        int tamanho = numba.size();
         double desvioPadrao = 0, diferencaMedia, somaQuadrado;
         for(int i : numba)
         {

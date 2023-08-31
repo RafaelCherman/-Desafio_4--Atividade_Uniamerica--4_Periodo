@@ -13,16 +13,14 @@ public class CalculaService {
     public String calculos(final Numeros numeros)
     {
         int tamanho = numeros.getNumba().size();
-        double desvioPadrao = 0, mediana, media;
-        List<Integer> ordenados = numeros.getNumba();
-        Collections.sort(ordenados);
+        double desvioPadrao, mediana, media;
 
 
-        media = numeros.calculaMedia(tamanho);
+        media = numeros.calculaMedia();
 
-        desvioPadrao = numeros.calculaDesvioPadrao(tamanho, media);
+        desvioPadrao = numeros.calculaDesvioPadrao();
 
-        mediana = numeros.calculaMediana(ordenados, tamanho);
+        mediana = numeros.calculaMediana();
 
 
         return "Total de numeros: " + tamanho + "\n" +

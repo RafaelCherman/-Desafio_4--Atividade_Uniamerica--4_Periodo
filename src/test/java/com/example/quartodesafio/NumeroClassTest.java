@@ -10,34 +10,45 @@ import java.util.ArrayList;
 @SpringBootTest
 public class NumeroClassTest {
 
-    ArrayList<Integer> lista = new ArrayList<>();
+
 
     @Test
     public void testCalculaMedia()
     {
+        ArrayList<Integer> lista = new ArrayList<>();
         for(int i=1; i<21; i++)
         {
             lista.add(i);
         }
         Numeros testes = new Numeros(lista);
-        double media = testes.calculaMedia(20);
+        double media = testes.calculaMedia();
         Assert.assertEquals(10.5, media, 0);
     }
 
     @Test
     public void testCalculaMediana()
     {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for(int i=1; i<21; i++)
+        {
+            lista.add(i);
+        }
         Numeros testes = new Numeros(lista);
-        double mediana = testes.calculaMediana(lista,20);
+        double mediana = testes.calculaMediana();
         Assert.assertEquals(10.5, mediana, 0);
     }
 
     @Test
     public void testCalculaDesvioPadrao()
     {
+        ArrayList<Integer> lista = new ArrayList<>();
+        for(int i=1; i<21; i++)
+        {
+            lista.add(i);
+        }
         Numeros testes = new Numeros(lista);
-        double desvioPadrao = testes.calculaDesvioPadrao(20, 10.5);
-        Assert.assertEquals(0, desvioPadrao, 0);
+        double desvioPadrao = testes.calculaDesvioPadrao();
+        Assert.assertEquals(5.76, desvioPadrao, 0.01);
     }
 
 
